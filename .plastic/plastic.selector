@@ -1,0 +1,4 @@
+repository "I Will Survive@GutsySmile@cloud"
+  path "/"
+    br "/main"
+    co "/main"

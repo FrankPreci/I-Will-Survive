@@ -9,10 +9,7 @@ public class Health : MonoBehaviour
     public float maxHealth = 100f; //100health
     public float currentHealth; // gets current health
     // Start is called before the first frame update
-    void Start()
-    {
-        currentHealth = maxHealth;
-    }
+
     public void SetMaxHP(int health)
     {
         hp_slider.maxValue = health;
@@ -20,10 +17,12 @@ public class Health : MonoBehaviour
     }
     public void SetHP(int health)
     {
+        if(health < 0) { health = 0;}//hp should not be less than 0
+
         hp_slider.value = health; 
     }
 
-    public void TakeDamage(float amount)
+   /* public void TakeDamage(float amount)
     {
         currentHealth -= amount;
         //When we have health bar UI
@@ -35,7 +34,7 @@ public class Health : MonoBehaviour
             }
 
     }
-
+   */
     public void Heal (float amount)
     {
         currentHealth += amount;

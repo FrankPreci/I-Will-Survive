@@ -7,7 +7,7 @@ public class Enemy_Movement : MonoBehaviour
 {
     public GameObject player;
     public float speed;
-    public float stopDistance = 57;
+    public float stopDistance = 3;
     private float distance;
     private bool facingRight = true;
     Vector2 direction;

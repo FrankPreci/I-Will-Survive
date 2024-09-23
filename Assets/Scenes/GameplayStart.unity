@@ -226,7 +226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -335, y: 169}
+  m_AnchoredPosition: {x: -442.5, y: 230.3}
   m_SizeDelta: {x: 254.8895, y: 19.4974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &264774190
@@ -324,8 +324,8 @@ Transform:
   m_GameObject: {fileID: 696274565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 483, y: 130, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalPosition: {x: 476, y: 195, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -441,8 +441,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.103497505, y: -0.039194584}
-  m_Size: {x: 3.2261043, y: 14.014241}
+  m_Offset: {x: -0.024520874, y: -0.10321045}
+  m_Size: {x: 1.7538757, y: 6.6530457}
   m_Direction: 0
 --- !u!114 &696274572
 MonoBehaviour:
@@ -530,15 +530,15 @@ Canvas:
   m_GameObject: {fileID: 946254931}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1317874294}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -649,8 +649,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1172067413}
   - component: {fileID: 1172067412}
-  - component: {fileID: 1172067411}
   - component: {fileID: 1172067414}
+  - component: {fileID: 1172067411}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -672,7 +672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 696274565}
   speed: 30
-  stopDistance: 57
+  stopDistance: 8
 --- !u!212 &1172067412
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -734,8 +734,8 @@ Transform:
   m_GameObject: {fileID: 1172067410}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 704, y: 264, z: 0}
-  m_LocalScale: {x: 200, y: 200, z: 1}
+  m_LocalPosition: {x: 540.1, y: 215.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -834,11 +834,11 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000.1
-  field of view: 60
-  orthographic: 1
-  orthographic size: 300
-  m_Depth: -1
+  far clip plane: 1000
+  field of view: 150
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295

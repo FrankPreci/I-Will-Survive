@@ -70,3 +70,16 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+
+# Ignore Plastic SCM files
+.plastic/
+*.plastic
+
+# Ignore build artifacts
+/build
+/dist
+*.log
+
+# Ignore temporary files
+*.tmp

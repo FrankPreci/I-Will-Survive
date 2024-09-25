@@ -5,9 +5,9 @@ using UnityEngine.UI; // This is for health bar ui later
 
 public class Health : MonoBehaviour
 {
-    public float maxHealth = 100f; //100health
-    public float currentHealth; // gets current health
-    public float damageTaken = 20;
+    public int maxHealth = 100; //100health
+    public int currentHealth; // gets current health
+    public int damageTaken = 20;
     
     public HealthBar healthBar;
 
@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);

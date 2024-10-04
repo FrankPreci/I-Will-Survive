@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d70623640ebee0e4e8273fdfd0fefc6b
+guid: 5fb168d39b353174e9860fdc7ba96baf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +108,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: I Will Survive_ XP drops_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 118
+        width: 75
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f67135c3d4a43fe48b8ffb8e180b5778
+      internalID: -2114267433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: I Will Survive_ XP drops_1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 118
+        width: 75
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5582feb202ae464ab2c4f3c58cf56d5
+      internalID: 2132003175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: I Will Survive_ XP drops_2
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 116
+        width: 75
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 713d2c14ed782bb4a8ed3c30b074dfb4
+      internalID: -230280652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: I Will Survive_ XP drops_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 4
+        width: 75
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfd0884d311822149a422490537c6853
+      internalID: -989825830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: I Will Survive_ XP drops_4
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 4
+        width: 75
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61bfcd34fa554474c9a42e045da1d39c
+      internalID: -963300808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +224,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      I Will Survive_ XP drops_0: -2114267433
+      I Will Survive_ XP drops_1: 2132003175
+      I Will Survive_ XP drops_2: -230280652
+      I Will Survive_ XP drops_3: -989825830
+      I Will Survive_ XP drops_4: -963300808
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

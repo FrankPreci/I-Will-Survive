@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1f8d6c4f4edd489478fb52985bc1e638
+guid: 967d227ffda8c91449ba948398fc368a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Health Item_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 11
+        width: 84
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9f72d940eaa3744db87f09a1b4321fc
+      internalID: 4524423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +140,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Health Item_0: 4524423
+      Health Item_1: -1873168904
+      Health Item_2: 243773054
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.Utilities;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-    //movement speed
-    public float horizontalSpeed = 60f;        
-    public float verticalSpeed = 40f;
+    public float horizontalSpeed = 2f;        
+    public float verticalSpeed = 2f;
     private Rigidbody2D rb;                 // Reference to the player's Rigidbody2D component
     private Vector2 movement;              // Stores movement direction
 
     void Start(){
         rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
     }
     void Update()
     {

@@ -1,48 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI; // This is for health bar ui later
 
 public class Health : MonoBehaviour
 {
-    public Slider hp_slider;
-    public float maxHealth = 100f; //100health
-    public float currentHealth; // gets current health
-    // Start is called before the first frame update
+    public int maxHealth = 100; //100health
+    public int currentHealth; // gets current health
+    public GameObject dmgSource;
+    public HealthBar healthBar;
+    public Screen_HP Screen_HP;
+
     void Start()
     {
         currentHealth = maxHealth;
-    }
-    public void SetMaxHP(int health)
-    {
-        hp_slider.maxValue = health;
-        hp_slider.value = health;
-    }
-    public void SetHP(int health)
-    {
-        hp_slider.value = health; 
+        healthBar.SetMaxHealth(maxHealth);
+        Screen_HP.SetMaxHealth(maxHealth);
     }
 
-    public void TakeDamage(float amount)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        currentHealth -= amount;
-        //When we have health bar UI
-        if(currentHealth <= 0)
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(20);
+        }
+        if (collision.tag == "Bullet")
+        {
+            TakeDamage(10);
+            Destroy(collision.GameObject());
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+        Screen_HP.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
             {
                 currentHealth = 0; // can't go negative.
-                //updateHealthBar();
                 Die();
             }
 
     }
 
-    public void Heal (float amount)
-    {
-        currentHealth += amount;
-        if ( currentHealth > maxHealth)
-            currentHealth = maxHealth;  // conditions to make sure character doesnt get more health than he can
-        //UpdateHealthBar();
-    }
+    // public void Heal (float amount)
+    // {
+    //     currentHealth += amount;
+    //     if ( currentHealth > maxHealth)
+    //         currentHealth = maxHealth;  // conditions to make sure character doesnt get more health than he can
+    //     //UpdateHealthBar();
+    // }
 
     /*private void UpdateHealthBar()
     {
@@ -53,5 +63,6 @@ public class Health : MonoBehaviour
     {
         //Destroy asset or whatever its called
         Debug.Log ("I did not survive.");
+        gameObject.SetActive(false);
     }
 }

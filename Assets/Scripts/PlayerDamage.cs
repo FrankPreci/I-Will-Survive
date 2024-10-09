@@ -14,7 +14,8 @@ public class PlayerDamage : MonoBehaviour
             Health health = GetComponent<Health>();
             if (health != null)
             {
-                health.TakeDamage(damageAmount);
+                Debug.Log ("I am hurt.");
+                //health.TakeDamage(damageAmount);
             }
         }
     }

@@ -8,16 +8,20 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset;       // Offset of the camera relative to the player
     public float smoothSpeed = 0.125f;  // Adjusts how smooth the camera follows the player
 
-    void FixedUpdate()
+
+        private void Start()
     {
-        // Desired position of the camera (player's position + offset)
-        Vector3 newPos = player.position + offset;
-
-        // Smoothly move the camera towards the desired position
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, newPos, smoothSpeed);
-
-        // Update the camera's position
-        transform.position = smoothedPosition;
+        player = GameObject.Find("Character-i").transform;
     }
+  
+    void Update()
+    {
+        // If the target is set, update the camera position to the target's position + offset
+        if (player != null)
+        {
+            transform.position = player.position + offset;
+        }
+    }
+   
 
 }

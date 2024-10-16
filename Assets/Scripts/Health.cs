@@ -10,11 +10,13 @@ public class Health : MonoBehaviour
     public int currentHealth; // gets current health
     public GameObject dmgSource;
     public HealthBar healthBar;
+    public Screen_HP Screen_HP;
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        Screen_HP.SetMaxHealth(maxHealth);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,6 +36,7 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        Screen_HP.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
             {

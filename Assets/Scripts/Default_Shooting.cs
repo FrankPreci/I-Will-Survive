@@ -6,8 +6,6 @@ using UnityEngine;
 public class Default_Shooting : MonoBehaviour
 {
     public GameObject bulletPrefab;  // Reference to the bullet prefab
-    private Rigidbody2D rb;
-    public Transform bulletSpawn;
     public float bulletSpeed = 4f;   // Speed of the bullet
     public float fireRate = 0.5f;     // Time between shots
 
@@ -36,7 +34,7 @@ public class Default_Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
         // Set the bullet's velocity (for Rigidbody2D)
-        rb = bullet.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = shootDirection * bulletSpeed;
 
         // Optional: Destroy the bullet after a certain time to prevent clutter

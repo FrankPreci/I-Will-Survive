@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6541934730086281628}
   - component: {fileID: 155959594908974744}
   - component: {fileID: 4643197686579592474}
+  - component: {fileID: 5214179345846023300}
   m_Layer: 0
   m_Name: Character-i
   m_TagString: Untagged
@@ -179,8 +180,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  damageTaken: 20
+  dmgSource: {fileID: 0}
   healthBar: {fileID: 3414354774062475908}
+--- !u!114 &5214179345846023300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642536478259678055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8dfe5591a3b0da4fa31f0e1738366a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4690785397923015611, guid: 9732515e4cf478c428dea65172182770, type: 3}
+  bulletSpawn: {fileID: 0}
+  bulletSpeed: 4
+  fireRate: 0.5
 --- !u!1 &4700883340455445117
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade00de99af5c4549bbaecf3c74491af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 3326836112785719683}
+  attachedSlider: {fileID: 0}
+  ScreenSlider: {fileID: 0}
 --- !u!1 &4730620408084881244
 GameObject:
   m_ObjectHideFlags: 0

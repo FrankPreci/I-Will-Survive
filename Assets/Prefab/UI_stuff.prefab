@@ -143,8 +143,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3290760202155242633}
   - {fileID: 876512335661991660}
+  - {fileID: 3290760202155242633}
   - {fileID: 2398012730199898836}
   - {fileID: 935004615045039703}
   - {fileID: 9157783058527813098}
@@ -543,7 +543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade00de99af5c4549bbaecf3c74491af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 2272654234163338931}
+  attachedSlider: {fileID: 0}
+  ScreenSlider: {fileID: 0}
 --- !u!1 &4574264142669419955
 GameObject:
   m_ObjectHideFlags: 0

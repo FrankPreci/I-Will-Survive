@@ -7,12 +7,15 @@ public class EnemyShoot : MonoBehaviour
     public GameObject player;          // The player object
     public GameObject bulletPrefab;    // The bullet prefab to shoot
     public Transform firePoint;        // Where the bullets will be fired from
-    public float bulletSpeed = 10f;    // Speed of the bullets
+    public float bulletSpeed = 30f;    // Speed of the bullets
     public float fireRate = 1.0f;      // How often the enemy fires
     public float bulletLifeTime = 3f;
     private float nextFireTime = 0f;   // Keeps track of when the enemy can fire again
-    
 
+    private void Start()
+    {
+        player = GameObject.Find("Character-i");
+    }
     // Update is called once per frame
     void Update()
     {

@@ -20,8 +20,10 @@ public class EnemyShoot : MonoBehaviour
     void Update()
     {
         // Lock the enemy's rotation toward the player
-        LockOnPlayer();
-
+        if (player.activeInHierarchy)
+        {
+            LockOnPlayer();
+        }
         // Check if the enemy can shoot
         if (Time.time > nextFireTime)
         {

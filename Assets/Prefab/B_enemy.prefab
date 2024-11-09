@@ -180,6 +180,6 @@ MonoBehaviour:
   player: {fileID: 3642536478259678055, guid: 3f93aa280555d044d9cc2cb08f0805b1, type: 3}
   bulletPrefab: {fileID: 4690785397923015611, guid: 9732515e4cf478c428dea65172182770, type: 3}
   firePoint: {fileID: 1924303472789197831}
-  bulletSpeed: 10
+  bulletSpeed: 30
   fireRate: 1
   bulletLifeTime: 3

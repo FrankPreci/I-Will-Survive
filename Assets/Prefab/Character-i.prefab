@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4643197686579592474}
   m_Layer: 0
   m_Name: Character-i
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,8 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c87c8a3097a9343a50cba08c4956af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swarm: {fileID: 0}
   horizontalSpeed: 20
   verticalSpeed: 20
+  currentEXP: 0
+  expLeveling: {fileID: 0}
 --- !u!114 &4643197686579592474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,8 +182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  damageTaken: 20
   healthBar: {fileID: 3414354774062475908}
+  timer: {fileID: 0}
 --- !u!1 &4700883340455445117
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 3326836112785719683}
+  healthSlider2: {fileID: 0}
 --- !u!1 &4730620408084881244
 GameObject:
   m_ObjectHideFlags: 0

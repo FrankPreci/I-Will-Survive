@@ -8,15 +8,23 @@ public class Health : MonoBehaviour
 {
     public int maxHealth = 100; //100health
     public int currentHealth; // gets current health
-    public GameObject dmgSource;
+    //public GameObject dmgSource;
     public HealthBar healthBar;
-    public Screen_HP Screen_HP;
-
+    public Timer timer;
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        Screen_HP.SetMaxHealth(maxHealth);
+        //Screen_HP.SetMaxHealth(maxHealth);
+
+    }
+    private void Update()
+    {
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        healthBar.SetHealth(currentHealth);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,14 +44,13 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        Screen_HP.SetHealth(currentHealth);
+        //Screen_HP.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
-            {
-                currentHealth = 0; // can't go negative.
-                Die();
-            }
-
+        {
+            currentHealth = 0; // can't go negative.
+            Die();
+        }
     }
 
     // public void Heal (float amount)
@@ -64,5 +71,6 @@ public class Health : MonoBehaviour
         //Destroy asset or whatever its called
         Debug.Log ("I did not survive.");
         gameObject.SetActive(false);
+        timer.StopTimer();
     }
 }

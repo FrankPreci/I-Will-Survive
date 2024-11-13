@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 882832706089641942}
   - component: {fileID: 6885707030263170401}
   - component: {fileID: -1269289782267644779}
+  - component: {fileID: -1830779075284407545}
   - component: {fileID: 2348443346539416723}
-  - component: {fileID: 7278476510591124026}
   - component: {fileID: -2445430932532273156}
+  - component: {fileID: -317425363221396725}
   m_Layer: 0
   m_Name: A_enemy
   m_TagString: Enemy
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 389.6, y: 162.7, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e23324e2bf143f949bd4c4f75f4a425e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,8 +102,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3642536478259678055, guid: 3f93aa280555d044d9cc2cb08f0805b1, type: 3}
-  speed: 20
+  swarm: {fileID: 0}
+  speed: 10
   stopDistance: 3
+--- !u!114 &-1830779075284407545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8518486660236475138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313ac4170936ad543b0f172eaa5866e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 120
+  currentHealth: 0
+  xpPotionPrefab: {fileID: 1509296931823085018, guid: c4cc1b118aec32645bce494d9c1d4d70, type: 3}
 --- !u!50 &2348443346539416723
 Rigidbody2D:
   serializedVersion: 4
@@ -130,8 +147,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &7278476510591124026
-EdgeCollider2D:
+--- !u!114 &-2445430932532273156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8518486660236475138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2118930af947b4549977dfeefddc61a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3642536478259678055, guid: 3f93aa280555d044d9cc2cb08f0805b1, type: 3}
+  bulletPrefab: {fileID: 4690785397923015611, guid: 9732515e4cf478c428dea65172182770, type: 3}
+  firePoint: {fileID: 882832706089641942}
+  bulletSpeed: 30
+  fireRate: 0.5
+  bulletLifeTime: 8
+--- !u!60 &-317425363221396725
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -159,40 +194,44 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.58, y: 0.73}
+    newSize: {x: 1.16, y: 1.46}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   m_Points:
-  - {x: -0.28609884, y: -0.3510549}
-  - {x: 0.00096325204, y: 0.3627568}
-  - {x: 0.14800203, y: -0.005789821}
-  - {x: 0.2894978, y: -0.35226503}
-  - {x: 0.1827931, y: -0.3566021}
-  - {x: 0.11031485, y: -0.19228072}
-  - {x: -0.10979211, y: -0.18575299}
-  - {x: -0.1697287, y: -0.36493492}
-  - {x: -0.279573, y: -0.35731152}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
---- !u!114 &-2445430932532273156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8518486660236475138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2118930af947b4549977dfeefddc61a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 3642536478259678055, guid: 3f93aa280555d044d9cc2cb08f0805b1, type: 3}
-  bulletPrefab: {fileID: 4690785397923015611, guid: 9732515e4cf478c428dea65172182770, type: 3}
-  firePoint: {fileID: 882832706089641942}
-  bulletSpeed: 10
-  fireRate: 1
-  bulletLifeTime: 8
+    m_Paths:
+    - - {x: 0.114999995, y: -0.185}
+      - {x: 0.14, y: -0.26}
+      - {x: 0.175, y: -0.35}
+      - {x: 0.19, y: -0.35999998}
+      - {x: 0.26999998, y: -0.35999998}
+      - {x: 0.28, y: -0.35}
+      - {x: 0.28, y: -0.33499998}
+      - {x: 0.24499999, y: -0.25}
+      - {x: 0.089999996, y: 0.125}
+      - {x: 0.065, y: 0.185}
+      - {x: 0.02, y: 0.31}
+      - {x: 0.01, y: 0.33499998}
+      - {x: 0, y: 0.33499998}
+      - {x: -0.015, y: 0.32}
+      - {x: -0.024999999, y: 0.29}
+      - {x: -0.055, y: 0.21}
+      - {x: -0.155, y: -0.049999997}
+      - {x: -0.21499999, y: -0.205}
+      - {x: -0.265, y: -0.33499998}
+      - {x: -0.265, y: -0.35}
+      - {x: -0.255, y: -0.35999998}
+      - {x: -0.175, y: -0.35999998}
+      - {x: -0.14999999, y: -0.32}
+      - {x: -0.13499999, y: -0.26}
+      - {x: -0.105, y: -0.185}
+  m_UseDelaunayMesh: 0

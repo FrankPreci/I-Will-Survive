@@ -14,11 +14,11 @@ public class Health : MonoBehaviour
     public Timer timer;
     public TextMeshProUGUI healthText;
 
-
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        //Screen_HP.SetMaxHealth(maxHealth);
         updateHealthText();
 
     }
@@ -49,15 +49,38 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        updateHealthText();
+        //Screen_HP.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
         {
             currentHealth = 0; // can't go negative.
             Die();
         }
+    }
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount; // Increase max health
+        currentHealth += amount; // Restore extra health up to the new max
+        healthBar.SetMaxHealth(maxHealth);
         updateHealthText();
+
+        Debug.Log($"Max health increased to {maxHealth}. Current health: {currentHealth}");
     }
 
+    // public void Heal (float amount)
+    // {
+    //     currentHealth += amount;
+    //     if ( currentHealth > maxHealth)
+    //         currentHealth = maxHealth;  // conditions to make sure character doesnt get more health than he can
+    //     //UpdateHealthBar();
+    // }
+
+    /*private void UpdateHealthBar()
+    {
+        healthBarFill.fillAmount = currentHealth / maxHealth;
+    }
+    */
     private void Die()
     {
         //Destroy asset or whatever its called
@@ -65,7 +88,6 @@ public class Health : MonoBehaviour
         gameObject.SetActive(false);
         timer.StopTimer();
     }
-
     public void updateHealthText()
     {
         if (healthText != null)

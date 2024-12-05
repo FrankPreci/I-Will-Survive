@@ -8,10 +8,14 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth; // gets current health
     //public GameObject dmgSource;
     public GameObject xpPotionPrefab;
+    public GameObject healthPotionPrefab; // Reference to the health potion prefab
+    private float healthPotionDropChance = 0.1f; // 10% chance
+    private Player player;
+
     void Start()
     {
         currentHealth = maxHealth;
-
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
     private void Update()
     {
@@ -25,14 +29,15 @@ public class EnemyHealth : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("PlayerBullet"))
         {
-            TakeDamage(20);
+            TakeDamage(10);
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int baseDamage)
     {
-        currentHealth -= damage;
-
+        int totalDamage = baseDamage + (5 * player.damageMultiplier);
+        currentHealth -= totalDamage;
+        //Debug.Log("I took " + totalDamage + " damage");
         if (currentHealth <= 0)
         {
             currentHealth = 0; // can't go negative.
@@ -42,6 +47,11 @@ public class EnemyHealth : MonoBehaviour
 
     private void DropXpPotion()
     {
+        // 10% chance to drop a health potion
+        if (healthPotionPrefab != null && Random.value <= healthPotionDropChance)
+        {
+            Instantiate(healthPotionPrefab, transform.position, Quaternion.identity);
+        }
         if( xpPotionPrefab != null)
         {
             GameObject xpPotion = Instantiate(xpPotionPrefab, transform.position, Quaternion.identity);   

@@ -12,7 +12,7 @@ public class RoguelikeEnemySpawner : MonoBehaviour
     private float screenWidth;
     private float screenHeight;
     private float nextSpawnTime;
-
+    public float spawnBuffer = 5f;     // Distance outside the player's view to spawn
     void Start()
     {
         // Calculate screen boundaries based on camera
@@ -40,22 +40,23 @@ public class RoguelikeEnemySpawner : MonoBehaviour
         GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
         
         Vector2 spawnPosition = Vector2.zero;
+        Vector2 cameraPosition = player.transform.position;
 
         // Randomly choose an edge to spawn the enemy
         int edge = Random.Range(0, 4);  // 0: left, 1: right, 2: top, 3: bottom
         switch (edge)
         {
             case 0: // Left
-                spawnPosition = new Vector2(-screenWidth, Random.Range(-screenHeight, screenHeight));
+                spawnPosition = new Vector2(cameraPosition.x - screenWidth - spawnBuffer, Random.Range(cameraPosition.y - screenHeight, cameraPosition.y + screenHeight));
                 break;
             case 1: // Right
-                spawnPosition = new Vector2(screenWidth, Random.Range(-screenHeight, screenHeight));
+                spawnPosition = new Vector2(cameraPosition.x + screenWidth + spawnBuffer, Random.Range(cameraPosition.y - screenHeight, cameraPosition.y + screenHeight));
                 break;
             case 2: // Top
-                spawnPosition = new Vector2(Random.Range(-screenWidth, screenWidth), screenHeight);
+                spawnPosition = new Vector2(Random.Range(cameraPosition.x - screenWidth, cameraPosition.x + screenWidth), cameraPosition.y + screenHeight + spawnBuffer);
                 break;
             case 3: // Bottom
-                spawnPosition = new Vector2(Random.Range(-screenWidth, screenWidth), -screenHeight);
+                spawnPosition = new Vector2(Random.Range(cameraPosition.x - screenWidth, cameraPosition.x + screenWidth), cameraPosition.y - screenHeight - spawnBuffer);
                 break;
         }
 

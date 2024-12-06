@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;                 // Reference to the player's Rigidbody2D component
     private Vector2 movement;              // Stores movement direction
     private Health health;
+    private Magnet magnet;
     private PlayerStats playerStats;
     public int level { get; private set; } = 1;
     public int currentEXP = 0;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         swarm = GameObject.Find("EnemySpawner");
         health = GetComponent<Health>();
+        magnet = GetComponent<Magnet>();
         playerStats = FindObjectOfType<PlayerStats>();
         updateLVLText();
         if (levelUpPanel != null) {
@@ -62,14 +64,16 @@ public class Player : MonoBehaviour
         level += 1;
         Debug.Log("Level " + level+ "\nNew Max EXP:" + maxEXP);
         updateLVLText();
+        if (playerStats != null) 
+        {
+            playerStats.UpdateStatsDisplay();
+        }
         if (levelUpPanel != null) {
             levelUpPanel.SetActive(true);
             Time.timeScale = 0;
-            if (playerStats != null) {
-                playerStats.UpdateStatsDisplay();
-            }
         }
     }
+    
     public void updateLVLText() {
         if (levelText != null) {
             levelText.text = "Level: " + level;
@@ -83,17 +87,24 @@ public class Player : MonoBehaviour
     }
     public void IncreaseDamageMultiplier() {
         damageMultiplier += 1;
-        //Debug.Log("Damage Multiplier Increased: " + damageMultiplier);
         DismissLevelUpPanel();
     }
     public void IncreaseMovementSpeed() {
-        movementSpeedMultiplier += 0.05f; // Increase movement speed by 5%
-        //Debug.Log("Movement Speed Multiplier Increased: " + movementSpeedMultiplier);
+        movementSpeedMultiplier += 0.05f;
         DismissLevelUpPanel();
     }
     public void IncreaseMaxHealth() {
         if (health != null) {
-            health.IncreaseMaxHealth(10); // Call the Health script to update max health
+            health.IncreaseMaxHealth(10);
+        }
+        DismissLevelUpPanel();
+    }
+    public void IncreaseMagnetRadius()
+    {
+        if (magnet != null)
+        {
+            magnet.IncreasePullRange(2.0f);
+            Debug.Log("Magnet radius upgraded!");
         }
         DismissLevelUpPanel();
     }

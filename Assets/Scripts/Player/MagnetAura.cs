@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Magnet : MonoBehaviour
+public class MagnetAura : MonoBehaviour
 {
     public float pullRange = 5f;         // Range within which the magnet effect is active
     public float pullSpeed = 2f;        // Speed at which objects are pulled towards the player

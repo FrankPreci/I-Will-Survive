@@ -51,5 +51,4 @@ public class Player_Shooting : MonoBehaviour
 
         Destroy(bullet, 3);
     }
-
 }

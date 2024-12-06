@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class MagnetUpgrade : MonoBehaviour
+//Creates a scriptable object that can be attached to a gameobject to change its maxHealth
+[CreateAssetMenu(menuName ="Powerups/MagnetBuff")]
+public class MagnetUpgrade : PowerUpEffect
 {
-    // Start is called before the first frame update
-    void Start()
+    public int range;
+    public override void Apply(GameObject target)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        target.GetComponent<MagnetAura>().pullRange += range;
     }
 }

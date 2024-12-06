@@ -12,6 +12,7 @@ public class Player_Shooting : MonoBehaviour
     public float fireRate = 1f;
     public float timeBetweenFiring = 1f;
     public float bulletSpeed = 50f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +49,7 @@ public class Player_Shooting : MonoBehaviour
         Vector2 shootDirection = (mousePos - bulletTransform.position).normalized;
         rb.velocity = shootDirection * bulletSpeed;
 
-        Destroy(bullet, 4);
+        Destroy(bullet, 3);
     }
 
 }

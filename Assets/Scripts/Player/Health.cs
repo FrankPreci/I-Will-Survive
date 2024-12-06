@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI; // This is for health bar ui later
+using TMPro;
 
 public class Health : MonoBehaviour
 {
@@ -11,11 +12,14 @@ public class Health : MonoBehaviour
     //public GameObject dmgSource;
     public HealthBar healthBar;
     public Timer timer;
+    public TextMeshProUGUI healthText;
+
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         //Screen_HP.SetMaxHealth(maxHealth);
+        updateHealthText();
 
     }
     private void Update()
@@ -25,6 +29,7 @@ public class Health : MonoBehaviour
             currentHealth = maxHealth;
         }
         healthBar.SetHealth(currentHealth);
+        updateHealthText();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,6 +49,7 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        updateHealthText();
         //Screen_HP.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
@@ -51,6 +57,15 @@ public class Health : MonoBehaviour
             currentHealth = 0; // can't go negative.
             Die();
         }
+    }
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount; // Increase max health
+        currentHealth += amount; // Restore extra health up to the new max
+        healthBar.SetMaxHealth(maxHealth);
+        updateHealthText();
+
+        Debug.Log($"Max health increased to {maxHealth}. Current health: {currentHealth}");
     }
 
     // public void Heal (float amount)
@@ -72,5 +87,12 @@ public class Health : MonoBehaviour
         Debug.Log ("I did not survive.");
         gameObject.SetActive(false);
         timer.StopTimer();
+    }
+    public void updateHealthText()
+    {
+        if (healthText != null)
+        {
+            healthText.text = currentHealth + " / " + maxHealth;
+        }
     }
 }

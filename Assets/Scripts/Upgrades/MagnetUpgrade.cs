@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyC : MonoBehaviour
+public class MagnetUpgrade : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

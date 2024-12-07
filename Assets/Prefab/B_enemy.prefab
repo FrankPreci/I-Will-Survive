@@ -200,3 +200,4 @@ MonoBehaviour:
   maxHealth: 120
   currentHealth: 0
   xpPotionPrefab: {fileID: 1509296931823085018, guid: c4cc1b118aec32645bce494d9c1d4d70, type: 3}
+  healthPotionPrefab: {fileID: 2349389065350269477, guid: 62500047f8cc4ec4494bc151b58dec97, type: 3}

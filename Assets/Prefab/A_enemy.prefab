@@ -117,9 +117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313ac4170936ad543b0f172eaa5866e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 120
+  maxHealth: 100
   currentHealth: 0
   xpPotionPrefab: {fileID: 1509296931823085018, guid: c4cc1b118aec32645bce494d9c1d4d70, type: 3}
+  healthPotionPrefab: {fileID: 2349389065350269477, guid: 62500047f8cc4ec4494bc151b58dec97, type: 3}
 --- !u!50 &2348443346539416723
 Rigidbody2D:
   serializedVersion: 4
@@ -159,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2118930af947b4549977dfeefddc61a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3642536478259678055, guid: 3f93aa280555d044d9cc2cb08f0805b1, type: 3}
+  player: {fileID: 642511230928674976, guid: 35f69ca6570814b40acd4723195d7773, type: 3}
   bulletPrefab: {fileID: 4690785397923015611, guid: 9732515e4cf478c428dea65172182770, type: 3}
   firePoint: {fileID: 882832706089641942}
   bulletSpeed: 30

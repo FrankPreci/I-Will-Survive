@@ -11,11 +11,13 @@ public class EnemyHealth : MonoBehaviour
     public GameObject healthPotionPrefab; // Reference to the health potion prefab
     private float healthPotionDropChance = 0.1f; // 10% chance
     private Player player;
+    private Q_Shooting q_shooter;
 
     void Start()
     {
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        q_shooter = GetComponent<Q_Shooting>();
     }
     private void Update()
     {
@@ -60,6 +62,10 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        if (q_shooter != null)
+        {
+            q_shooter.StopShooting(); // This will stop the shooting
+        }
         //Destroy asset or whatever its called
         gameObject.SetActive(false);
         DropXpPotion();

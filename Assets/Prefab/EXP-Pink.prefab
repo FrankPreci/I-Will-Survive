@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7615149531120371773}
   m_Layer: 0
   m_Name: EXP-Pink
-  m_TagString: HP
+  m_TagString: XP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

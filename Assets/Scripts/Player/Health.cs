@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI; // This is for health bar ui later
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -85,7 +86,8 @@ public class Health : MonoBehaviour
     {
         //Destroy asset or whatever its called
         Debug.Log ("I did not survive.");
-        gameObject.SetActive(false);
+        SceneManager.LoadScene(2);
+        // Load the game scene or start the game logic
         timer.StopTimer();
     }
     public void updateHealthText()

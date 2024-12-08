@@ -1,50 +1,71 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public GameObject pauseMenu;
-    public bool isPaused;
-    void Start()
-    {
-        pauseMenu.SetActive(false);
-    }
+    public GameObject pauseMenuUI;     // Main Pause Menu UI
+    public GameObject optionsPanelUI; // Options Panel UI
 
-    // Update is called once per frame
+    private bool isPaused = false;
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)) {
-            if (isPaused) {
-                ResumeGame();
-            } else {
-                PauseGame();
+        // Toggle pause menu when the Escape key is pressed
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
             }
         }
     }
-    public void PauseGame(){
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        isPaused = true;
-    }
 
-    public void ResumeGame(){
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
+    public void Resume()
+    {
+        pauseMenuUI.SetActive(false);  // Hide the pause menu
+        Time.timeScale = 1f;          // Resume game time
         isPaused = false;
     }
 
-    public void GotoMainMenu() {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("TitleScreen");
+    private void Pause()
+    {
+        pauseMenuUI.SetActive(true);  // Show the pause menu
+        Time.timeScale = 0f;          // Freeze game time
+        isPaused = true;
     }
 
-    public void QuitGame () {
+    public void OpenOptions()
+    {
+        pauseMenuUI.SetActive(false);    // Hide the pause menu
+        optionsPanelUI.SetActive(true); // Show the options panel
+    }
+
+    public void CloseOptions()
+    {
+        optionsPanelUI.SetActive(false); // Hide the options panel
+        pauseMenuUI.SetActive(true);    // Show the pause menu
+    }
+
+    public void RestartGame()
+    {
         Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game...");
         Application.Quit();
     }
-
-
 }

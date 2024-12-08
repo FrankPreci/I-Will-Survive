@@ -5,20 +5,25 @@ using UnityEngine;
 public class RoguelikeEnemySpawner : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;         // Array for different enemy prefabs
+    public GameObject Q_EnemyPrefab;
     public GameObject player;
+    public Timer timer;
     public float initialSpawnInterval = 3f;   // Starting time between spawns
     public float difficultyMultiplier = 0.95f; // Adjust spawn rate over time
     public float minSpawnInterval = 0.5f;     // Minimum time between spawns
     private float screenWidth;
     private float screenHeight;
     private float nextSpawnTime;
-    public float spawnBuffer = 5f;     // Distance outside the player's view to spawn
+    private int lastMinuteChecked = 0;
+    public float spawnBuffer = 100f;     // Distance outside the player's view to spawn
+    public float spawnDistanceAbove = 100f;
     void Start()
     {
         // Calculate screen boundaries based on camera
         screenWidth = Camera.main.aspect * Camera.main.orthographicSize;
         screenHeight = Camera.main.orthographicSize;
         player = GameObject.Find("Character-i");
+        timer = FindObjectOfType<Timer>();
         nextSpawnTime = Time.time + initialSpawnInterval;
     }
 
@@ -32,6 +37,13 @@ public class RoguelikeEnemySpawner : MonoBehaviour
             SpawnRandomEnemyAtEdge();
             UpdateSpawnInterval();
         }
+        int currentMinute = Mathf.FloorToInt(timer.ElapsedTime / 30);
+        if (currentMinute > lastMinuteChecked)
+        {
+            SpawnEnemiesAbovePlayer();
+            lastMinuteChecked = currentMinute;
+        }
+
     }
 
     void SpawnRandomEnemyAtEdge()
@@ -62,6 +74,26 @@ public class RoguelikeEnemySpawner : MonoBehaviour
 
         // Instantiate the enemy at the spawn position
         Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+    }
+    void SpawnEnemiesAbovePlayer()
+    {
+        Vector3 playerPosition = player.transform.position;
+
+        for (int i = 0; i < 2; i++) // Spawn two enemies
+        {
+            // Generate a random offset to vary spawn positions
+            float randomOffset = Random.Range(-100f, 100f);
+
+            // Calculate spawn position above the player
+            Vector3 spawnPosition = new Vector3(
+                playerPosition.x + randomOffset,
+                playerPosition.y + spawnDistanceAbove,
+                playerPosition.z
+            );
+
+            // Instantiate the timed enemy prefab
+            Instantiate(Q_EnemyPrefab, spawnPosition, Quaternion.identity);
+        }
     }
 
     void UpdateSpawnInterval()

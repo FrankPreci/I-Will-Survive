@@ -43,6 +43,7 @@ public class RoguelikeEnemySpawner : MonoBehaviour
             SpawnEnemiesAbovePlayer();
             lastMinuteChecked = currentMinute;
         }
+
     }
 
     void SpawnRandomEnemyAtEdge()

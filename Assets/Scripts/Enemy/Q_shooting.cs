@@ -5,11 +5,10 @@ public class Q_Shooting : MonoBehaviour
     public GameObject bulletPrefab;  // Reference to the circle projectile prefab
     public int numberOfProjectiles = 6;  // Number of projectiles in the ring
     public float radius = 3f;         // Radius of the ring
-    public float bulletSpeed = 30f;
-    public float fireRate = 1f;  // Time interval between shots
-    public float bulletLifeTime = 3f;
-    public float projectileSpeed = 5f; // Speed of the projectiles
-    private float nextFireTime = 0f;
+    public float fireRate = 3f;  // Time interval between shots
+    public float bulletLifeTime = 2f;
+    public float projectileSpeed = 50f; // Speed of the projectiles
+    private float nextFireTime = 100f;
     //private bool isAlive = true;
 
     private void Start()

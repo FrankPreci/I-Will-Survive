@@ -11,7 +11,9 @@ public class Magnet : MonoBehaviour
     {
         // Find all objects with the "XP" tag
         GameObject[] xpObjects = GameObject.FindGameObjectsWithTag("XP");
+        GameObject[] hpObjects = GameObject.FindGameObjectsWithTag("HP");
 
+        // Process XP objects
         foreach (GameObject xp in xpObjects)
         {
             if (xp == null) continue;
@@ -25,6 +27,26 @@ public class Magnet : MonoBehaviour
                 // Move the XP object towards the player
                 xp.transform.position = Vector3.MoveTowards(
                     xp.transform.position,
+                    transform.position,
+                    pullSpeed * Time.deltaTime
+                );
+            }
+        }
+
+        // Process HP objects
+        foreach (GameObject hp in hpObjects)
+        {
+            if (hp == null) continue;
+
+            // Calculate distance between player and HP object
+            float distanceToHP = Vector3.Distance(transform.position, hp.transform.position);
+
+            // Check if the HP object is within the pull range
+            if (distanceToHP <= pullRange)
+            {
+                // Move the HP object towards the player
+                hp.transform.position = Vector3.MoveTowards(
+                    hp.transform.position,
                     transform.position,
                     pullSpeed * Time.deltaTime
                 );

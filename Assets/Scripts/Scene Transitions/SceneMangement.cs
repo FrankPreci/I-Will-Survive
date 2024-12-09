@@ -29,6 +29,11 @@ public class MainMenu : MonoBehaviour
         mainMenu.SetActive(false);
         optionsMenu.SetActive(true);
     }
+     public void GameMenu()
+    {
+        // Load the game scene or start the game logic
+        SceneManager.LoadScene(0); // Replace with your scene name
+    }
 
     // Quit button action
     public void QuitGame()

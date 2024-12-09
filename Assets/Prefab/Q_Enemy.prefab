@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313ac4170936ad543b0f172eaa5866e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 350
   currentHealth: 0
   xpPotionPrefab: {fileID: 1509296931823085018, guid: c4cc1b118aec32645bce494d9c1d4d70, type: 3}
   healthPotionPrefab: {fileID: 2349389065350269477, guid: 62500047f8cc4ec4494bc151b58dec97, type: 3}
@@ -196,9 +196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4690785397923015611, guid: 9732515e4cf478c428dea65172182770, type: 3}
-  numberOfProjectiles: 6
+  numberOfProjectiles: 20
   radius: 3
-  bulletSpeed: 30
-  fireRate: 1
+  fireRate: 3
   bulletLifeTime: 3
-  projectileSpeed: 5
+  projectileSpeed: 50

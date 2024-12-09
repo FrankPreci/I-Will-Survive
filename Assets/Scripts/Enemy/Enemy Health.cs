@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100; //100health
+    public float hp_inc = 1.1f;
+    public Timer timer;
+    private int lastMinuteChecked = 0;
     public int currentHealth; // gets current health
     //public GameObject dmgSource;
     public GameObject xpPotionPrefab;
@@ -17,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        timer = GameObject.Find("Time Text Numbers").GetComponent<Timer>();
         q_shooter = GetComponent<Q_Shooting>();
     }
     private void Update()
@@ -24,6 +28,12 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
+        }
+        int currentMinute = Mathf.FloorToInt(timer.ElapsedTime / 60);
+        if (currentMinute > lastMinuteChecked)
+        {
+            Enemy_Hp_Increase();
+            lastMinuteChecked = currentMinute;
         }
     }
 
@@ -69,5 +79,9 @@ public class EnemyHealth : MonoBehaviour
         //Destroy asset or whatever its called
         gameObject.SetActive(false);
         DropXpPotion();
+    }
+    public void Enemy_Hp_Increase(){
+        maxHealth = Mathf.RoundToInt(maxHealth * hp_inc);
+        Debug.Log("New Max Health: " + maxHealth);
     }
 }

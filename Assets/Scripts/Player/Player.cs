@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.Utilities;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Player : MonoBehaviour
@@ -58,6 +59,9 @@ public class Player : MonoBehaviour
         currentEXP += amount;
     }
     public void LevelUp() {
+
+        Time.timeScale = 0;
+
         currentEXP = currentEXP % maxEXP;
         maxEXP += 50;
         expLeveling.SetMaxEXP(maxEXP);
@@ -72,6 +76,11 @@ public class Player : MonoBehaviour
             levelUpPanel.SetActive(true);
             Time.timeScale = 0;
         }
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;          // Resume game time
     }
     
     public void updateLVLText() {
